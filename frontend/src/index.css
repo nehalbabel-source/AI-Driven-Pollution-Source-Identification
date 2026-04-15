@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --surface: #0f1117;
+  --card: #1a1d2e;
+  --border: #252840;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0f1117;
+  color: #e2e8f0;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #1a1d2e; }
+::-webkit-scrollbar-thumb { background: #374151; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #4b5563; }
+
+/* Recharts tooltip custom styling */
+.recharts-tooltip-wrapper .recharts-default-tooltip {
+  background: #1a1d2e !important;
+  border: 1px solid #252840 !important;
+  border-radius: 8px !important;
+  color: #e2e8f0 !important;
+}
+
+/* Smooth number transitions */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-count {
+  animation: countUp 0.4s ease-out;
+}
+
+/* Pulsing dot for live indicator */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+.pulse-dot { animation: pulse-dot 1.8s ease-in-out infinite; }
+
+/* Card hover lift */
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* AQI gradient bar */
+.aqi-bar {
+  background: linear-gradient(90deg,
+    #00e400 0%,      /* Good */
+    #ffff00 25%,     /* Moderate */
+    #ff7e00 50%,     /* Poor */
+    #ff0000 70%,     /* Very Poor */
+    #8f3f97 85%,     /* Severe */
+    #7e0023 100%     /* Severe+ */
+  );
+  border-radius: 4px;
+}
